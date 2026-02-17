@@ -1,1 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Veeam Error: Failed to Connect to Host | FixVerse</title>
+  <link rel="stylesheet" href="../style.css">
 
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f6f9;
+      margin: 0;
+    }
+
+    header {
+      background-color: #0a1f44;
+      color: white;
+      text-align: center;
+      padding: 30px 20px;
+    }
+
+    .issue-container {
+      max-width: 900px;
+      margin: 40px auto;
+      background: white;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+
+    h2 {
+      margin-top: 0;
+    }
+
+    h3 {
+      margin-top: 30px;
+      color: #0a1f44;
+    }
+
+    .tag {
+      display: inline-block;
+      background: #0a1f44;
+      color: white;
+      padding: 5px 10px;
+      border-radius: 5px;
+      font-size: 12px;
+      margin-bottom: 10px;
+    }
+
+    code {
+      background: #eee;
+      padding: 3px 6px;
+      border-radius: 4px;
+    }
+
+    ol {
+      padding-left: 20px;
+    }
+
+    .back-link {
+      margin-top: 30px;
+      display: inline-block;
+    }
+
+    .back-link a {
+      text-decoration: none;
+      color: #0a1f44;
+      font-weight: bold;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #0a1f44;
+      color: white;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>FixVerse</h1>
+  <p>Real-World Solutions for Backup & Virtualization Engineers</p>
+</header>
+
+<div class="issue-container">
+
+  <span class="tag">Veeam</span>
+  <h2>Veeam Backup Error: Failed to Connect to Host</h2>
+
+  <h3>🔴 Exact Error Message</h3>
+  <p>
+    <code>Failed to connect to host. Error: Network connection timed out.</code>
+  </p>
+
+  <h3>📌 When Does This Happen?</h3>
+  <p>
+    This error usually appears during backup job execution when Veeam tries to communicate
+    with the ESXi host or proxy server.
+  </p>
+
+  <h3>🛠 Root Cause</h3>
+  <ul>
+    <li>Port 902 blocked between Veeam proxy and ESXi</li>
+    <li>Port 443 blocked</li>
+    <li>DNS resolution mismatch</li>
+    <li>Firewall restrictions</li>
+    <li>Incorrect host credentials</li>
+  </ul>
+
+  <h3>✅ Step-by-Step Solution</h3>
+  <ol>
+    <li>Verify connectivity to ESXi host:</li>
+    <p><code>ping ESXi_IP</code></p>
+
+    <li>Check port 902 connectivity:</li>
+    <p><code>telnet ESXi_IP 902</code></p>
+
+    <li>Verify port 443 is open.</li>
+    <li>Check Windows Firewall on proxy server.</li>
+    <li>Restart Veeam Transport Service.</li>
+    <li>Re-scan the ESXi host in Veeam.</li>
+  </ol>
+
+  <h3>🔎 Advanced Troubleshooting</h3>
+  <ul>
+    <li>Check Veeam logs: <code>C:\ProgramData\Veeam\Backup\</code></li>
+    <li>Validate DNS forward & reverse lookup</li>
+    <li>Confirm no SSL certificate mismatch</li>
+  </ul>
+
+  <h3>🧠 Real-World Fix Insight</h3>
+  <p>
+    In most production environments, this issue is caused by firewall rules blocking
+    port 902 traffic between the proxy and ESXi. Once allowed, backup jobs resume immediately.
+  </p>
+
+  <div class="back-link">
+    <a href="../index.html">← Back to Home</a>
+  </div>
+
+  <hr>
+
+  <!-- Future comment section placeholder -->
+  <p><strong>Discussion section coming soon...</strong></p>
+
+</div>
+
+<footer>
+  © 2026 FixVerse
+</footer>
+
+</body>
+</html>
