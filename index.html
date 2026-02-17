@@ -1,40 +1,156 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>FixVerse - Built by Engineers, for Engineers</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>FixVerse - Real World Backup & Virtualization Solutions</title>
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f6f9;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #0a1f44;
+      color: white;
+      text-align: center;
+      padding: 30px 20px;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 32px;
+    }
+
+    header p {
+      margin-top: 10px;
+      font-size: 14px;
+      opacity: 0.9;
+    }
+
+    .nav {
+      text-align: center;
+      padding: 15px;
+      background: #ffffff;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+
+    .nav a {
+      text-decoration: none;
+      margin: 0 15px;
+      color: #0a1f44;
+      font-weight: bold;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    .section-title {
+      font-size: 22px;
+      margin-bottom: 20px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+      transition: 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card h2 {
+      font-size: 18px;
+      margin: 0 0 10px 0;
+    }
+
+    .card h2 a {
+      text-decoration: none;
+      color: #0a1f44;
+    }
+
+    .tag {
+      display: inline-block;
+      background: #0a1f44;
+      color: white;
+      padding: 4px 8px;
+      font-size: 11px;
+      border-radius: 4px;
+      margin-bottom: 10px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #0a1f44;
+      color: white;
+      margin-top: 40px;
+    }
+  </style>
 </head>
+
 <body>
 
 <header>
-    <h1>FixVerse</h1>
-    <p>Built by Engineers, for Engineers</p>
+  <h1>FixVerse</h1>
+  <p>Real-World Solutions for Backup & Virtualization Engineers</p>
 </header>
 
-<input type="text" id="searchBox" placeholder="Search VMware / Veeam Error..." onkeyup="searchFunction()">
-<div style="text-align:center; margin:20px;">
-  <a href="submit.html">
-    <button style="padding:10px 20px; font-size:16px; cursor:pointer;">
-      + Submit Issue
-    </button>
-  </a>
-</div>
-<div id="errorContainer">
-
-    <div class="card">
-        <h2>Veeam Error: Failed to connect to host</h2>
-        <p><b>Cause:</b> Network / Firewall issue</p>
-        <p><b>Solution:</b> Check port 902 & 443 connectivity.</p>
-    </div>
-
-    <div class="card">
-        <h2>VMware Snapshot Consolidation Needed</h2>
-        <p><b>Cause:</b> Snapshot chain corruption</p>
-        <p><b>Solution:</b> Consolidate snapshots from vCenter.</p>
-    </div>
-
+<div class="nav">
+  <a href="index.html">Home</a>
+  <a href="submit.html">Submit Issue</a>
 </div>
 
-<script src="script.js"></script>
+<div class="container">
+
+  <div class="section-title">Latest Issues</div>
+
+  <div class="cards">
+
+    <!-- ISSUE 1 -->
+    <div class="card">
+      <span class="tag">Veeam</span>
+      <h2>
+        <a href="issues/veeam-failed-to-connect-host.html">
+          Veeam Error: Failed to Connect to Host
+        </a>
+      </h2>
+      <p>Network connectivity or firewall issue between Veeam proxy and ESXi host.</p>
+    </div>
+
+    <!-- ISSUE 2 -->
+    <div class="card">
+      <span class="tag">VMware</span>
+      <h2>
+        <a href="#">
+          ESXi Datastore Not Accessible
+        </a>
+      </h2>
+      <p>Common causes and troubleshooting steps for datastore connectivity issues.</p>
+    </div>
+
+  </div>
+
+</div>
+
+<footer>
+  © 2026 FixVerse | Built by Engineers
+</footer>
+
 </body>
 </html>
