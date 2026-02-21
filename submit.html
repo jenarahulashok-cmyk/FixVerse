@@ -6,6 +6,10 @@
   <link rel="stylesheet" href="style.css">
 
   <style>
+    * {
+      box-sizing: border-box; /* ⭐ fixes alignment issues */
+    }
+
     body {
       font-family: Arial, sans-serif;
       background-color: #f4f6f9;
@@ -20,43 +24,69 @@
       padding: 30px 20px;
     }
 
+    header h1 {
+      margin: 0;
+    }
+
     .form-container {
-      max-width: 750px;
+      max-width: 720px;
       margin: 40px auto;
       background: #ffffff;
-      padding: 30px;
-      border-radius: 8px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      padding: 35px;
+      border-radius: 10px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.08);
     }
 
     .form-container h2 {
       text-align: center;
-      margin-bottom: 20px;
+      margin-bottom: 30px;
+    }
+
+    .form-group {
+      margin-bottom: 18px;
     }
 
     label {
+      display: block;
       font-weight: bold;
+      margin-bottom: 6px;
+      color: #0a1f44;
     }
 
-    input, select, textarea {
+    input,
+    select,
+    textarea {
       width: 100%;
-      padding: 10px;
-      margin-top: 5px;
-      margin-bottom: 20px;
-      border-radius: 5px;
-      border: 1px solid #ccc;
+      padding: 12px;
+      border-radius: 6px;
+      border: 1px solid #ccd1d9;
       font-size: 14px;
+      transition: 0.2s;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      outline: none;
+      border-color: #0a1f44;
+      box-shadow: 0 0 0 2px rgba(10,31,68,0.08);
+    }
+
+    textarea {
+      resize: vertical;
     }
 
     button {
       background-color: #0a1f44;
       color: white;
-      padding: 12px 20px;
+      padding: 14px;
       border: none;
-      border-radius: 5px;
+      border-radius: 6px;
       font-size: 16px;
       cursor: pointer;
       width: 100%;
+      font-weight: bold;
+      margin-top: 10px;
     }
 
     button:hover {
@@ -65,7 +95,7 @@
 
     .back-link {
       text-align: center;
-      margin-top: 20px;
+      margin-top: 25px;
     }
 
     .back-link a {
@@ -88,75 +118,74 @@
 
   <form action="https://formspree.io/f/xeelkpag" method="POST">
 
-    <!-- NAME -->
-    <label>Your Name</label>
-    <input type="text" name="name" required>
+    <div class="form-group">
+      <label>Your Name</label>
+      <input type="text" name="name" required>
+    </div>
 
-    <!-- EMAIL (OPTIONAL) -->
-    <label>Your Email (optional)</label>
-    <input type="email" name="email">
+    <div class="form-group">
+      <label>Your Email (optional)</label>
+      <input type="email" name="email">
+    </div>
 
-    <!-- TECHNOLOGY -->
-    <label>Technology / Product</label>
-    <select name="product" required>
-      <option value="">-- Select Technology --</option>
+    <div class="form-group">
+      <label>Technology / Product</label>
+      <select name="product" required>
+        <option value="">-- Select Technology --</option>
 
-      <!-- Virtualization -->
-      <option>VMware ESXi</option>
-      <option>VMware vCenter</option>
-      <option>VMware vSAN</option>
-      <option>Hyper-V</option>
+        <option>VMware ESXi</option>
+        <option>VMware vCenter</option>
+        <option>VMware vSAN</option>
+        <option>Hyper-V</option>
 
-      <!-- Backup -->
-      <option>Veeam Backup</option>
-      <option>Commvault</option>
-      <option>Rubrik</option>
-      <option>Cohesity</option>
-      <option>NetBackup</option>
+        <option>Veeam Backup</option>
+        <option>Commvault</option>
+        <option>Rubrik</option>
+        <option>Cohesity</option>
+        <option>NetBackup</option>
 
-      <!-- Cloud -->
-      <option>AWS</option>
-      <option>Microsoft Azure</option>
-      <option>Google Cloud</option>
+        <option>AWS</option>
+        <option>Microsoft Azure</option>
+        <option>Google Cloud</option>
 
-      <!-- DevOps / Automation -->
-      <option>Terraform</option>
-      <option>Ansible</option>
-      <option>Docker</option>
-      <option>Kubernetes</option>
+        <option>Terraform</option>
+        <option>Ansible</option>
+        <option>Docker</option>
+        <option>Kubernetes</option>
 
-      <!-- Operating Systems -->
-      <option>Linux</option>
-      <option>Windows Server</option>
+        <option>Linux</option>
+        <option>Windows Server</option>
 
-      <!-- Storage -->
-      <option>NetApp</option>
-      <option>Dell EMC</option>
-      <option>Pure Storage</option>
+        <option>NetApp</option>
+        <option>Dell EMC</option>
+        <option>Pure Storage</option>
 
-      <!-- Networking -->
-      <option>NSX</option>
-      <option>Cisco</option>
+        <option>NSX</option>
+        <option>Cisco</option>
 
-      <!-- Other -->
-      <option>Other</option>
-    </select>
+        <option>Other</option>
+      </select>
+    </div>
 
-    <!-- SUBJECT -->
-    <label>Issue Subject</label>
-    <input type="text" name="subject" required>
+    <div class="form-group">
+      <label>Issue Subject</label>
+      <input type="text" name="subject" required>
+    </div>
 
-    <!-- ERROR -->
-    <label>Exact Error Message</label>
-    <textarea name="error" rows="3"></textarea>
+    <div class="form-group">
+      <label>Exact Error Message</label>
+      <textarea name="error" rows="3"></textarea>
+    </div>
 
-    <!-- DESCRIPTION -->
-    <label>Description</label>
-    <textarea name="description" rows="4"></textarea>
+    <div class="form-group">
+      <label>Description</label>
+      <textarea name="description" rows="4"></textarea>
+    </div>
 
-    <!-- SOLUTION -->
-    <label>Solution Steps (Step-by-step)</label>
-    <textarea name="solution" rows="6"></textarea>
+    <div class="form-group">
+      <label>Solution Steps (Step-by-step)</label>
+      <textarea name="solution" rows="6"></textarea>
+    </div>
 
     <button type="submit">Submit Issue</button>
 
