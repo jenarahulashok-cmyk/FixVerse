@@ -1,88 +1,108 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Submit Issue - FixVers</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<title>Submit Issue - FixVers</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f4f6f9;
-      margin: 0;
-      padding: 0;
-    }
+<style>
+* {
+  box-sizing: border-box;
+}
 
-    header {
-      background: #0a1f44;
-      color: white;
-      text-align: center;
-      padding: 20px;
-    }
+body {
+  font-family: Arial, sans-serif;
+  background: #f4f6f9;
+  margin: 0;
+  padding: 0;
+}
 
-    .form-container {
-      max-width: 700px;
-      margin: 40px auto;
-      background: #ffffff;
-      padding: 30px;
-      border-radius: 10px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.12);
-    }
+header {
+  background: #0a1f44;
+  color: white;
+  text-align: center;
+  padding: 24px 12px;
+}
 
-    .form-container h2 {
-      text-align: center;
-      margin-bottom: 25px;
-    }
+.form-wrapper {
+  display: flex;
+  justify-content: center;
+  padding: 40px 16px;
+}
 
-    label {
-      font-weight: bold;
-      display: block;
-      margin-bottom: 6px;
-    }
+.form-container {
+  width: 100%;
+  max-width: 720px;
+  background: #ffffff;
+  padding: 32px;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
 
-    input,
-    select,
-    textarea {
-      width: 100%;
-      padding: 12px;
-      margin-bottom: 18px;
-      border-radius: 6px;
-      border: 1px solid #ccc;
-      font-size: 14px;
-      box-sizing: border-box; /* 🔥 alignment fix */
-    }
+.form-container h2 {
+  text-align: center;
+  margin-bottom: 28px;
+  color: #0a1f44;
+}
 
-    textarea {
-      resize: vertical;
-    }
+label {
+  font-weight: 600;
+  display: block;
+  margin-bottom: 6px;
+}
 
-    button {
-      background-color: #0a1f44;
-      color: white;
-      padding: 14px;
-      border: none;
-      border-radius: 6px;
-      font-size: 16px;
-      cursor: pointer;
-      width: 100%;
-      font-weight: bold;
-    }
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 12px 14px;
+  margin-bottom: 18px;
+  border-radius: 8px;
+  border: 1px solid #d0d7de;
+  font-size: 14px;
+  font-family: inherit;
+  background: #fff;
+}
 
-    button:hover {
-      background-color: #163a7a;
-    }
+textarea {
+  resize: vertical;
+}
 
-    .back-link {
-      text-align: center;
-      margin-top: 20px;
-    }
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: #0a1f44;
+  box-shadow: 0 0 0 2px rgba(10,31,68,0.08);
+}
 
-    .back-link a {
-      text-decoration: none;
-      color: #0a1f44;
-      font-weight: bold;
-    }
-  </style>
+button {
+  width: 100%;
+  background-color: #0a1f44;
+  color: white;
+  padding: 14px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #163a7a;
+}
+
+.back-link {
+  text-align: center;
+  margin-top: 22px;
+}
+
+.back-link a {
+  text-decoration: none;
+  color: #0a1f44;
+  font-weight: bold;
+}
+</style>
 </head>
 
 <body>
@@ -92,76 +112,80 @@
   <p>Built by Engineers, for Engineers</p>
 </header>
 
+<div class="form-wrapper">
 <div class="form-container">
-  <h2>Submit a Real-World Issue</h2>
 
-  <form action="https://formspree.io/f/xeelkpag" method="POST">
+<h2>Submit a Real-World Issue</h2>
 
-    <!-- 🔥 REDIRECT FIX -->
-    <input type="hidden" name="_redirect" value="https://jenarahulashok-cmyk.github.io/FixVers/thankyou.html">
+<form action="https://formspree.io/f/xeelkpag" method="POST">
 
-    <label>Your Name</label>
-    <input type="text" name="name" required>
+  <!-- ✅ CORRECT REDIRECT -->
+  <input type="hidden" name="_next" value="https://jenarahulashok-cmyk.github.io/FixVers/thankyou.html">
 
-    <label>Technology / Product</label>
-    <select name="product" required>
-      <option value="">-- Select Technology --</option>
+  <label>Your Name</label>
+  <input type="text" name="name" required>
 
-      <optgroup label="Virtualization">
-        <option>VMware ESXi</option>
-        <option>vCenter</option>
-        <option>vSAN</option>
-        <option>Hyper-V</option>
-      </optgroup>
+  <label>Technology / Product</label>
+  <select name="product" required>
+    <option value="">-- Select Technology --</option>
 
-      <optgroup label="Backup Solutions">
-        <option>Veeam</option>
-        <option>Commvault</option>
-        <option>Rubrik</option>
-        <option>Cohesity</option>
-        <option>NetBackup</option>
-      </optgroup>
+    <optgroup label="Virtualization">
+      <option>VMware ESXi</option>
+      <option>vCenter</option>
+      <option>vSAN</option>
+      <option>Hyper-V</option>
+    </optgroup>
 
-      <optgroup label="Cloud">
-        <option>AWS</option>
-        <option>Azure</option>
-        <option>GCP</option>
-      </optgroup>
+    <optgroup label="Backup Solutions">
+      <option>Veeam</option>
+      <option>Commvault</option>
+      <option>Rubrik</option>
+      <option>Cohesity</option>
+      <option>NetBackup</option>
+    </optgroup>
 
-      <optgroup label="Automation / DevOps">
-        <option>Terraform</option>
-        <option>Ansible</option>
-        <option>Docker</option>
-        <option>Kubernetes</option>
-      </optgroup>
+    <optgroup label="Cloud">
+      <option>AWS</option>
+      <option>Azure</option>
+      <option>GCP</option>
+    </optgroup>
 
-      <optgroup label="Operating Systems">
-        <option>Linux</option>
-        <option>Windows Server</option>
-      </optgroup>
+    <optgroup label="Automation / DevOps">
+      <option>Terraform</option>
+      <option>Ansible</option>
+      <option>Docker</option>
+      <option>Kubernetes</option>
+    </optgroup>
 
-      <option>Other</option>
-    </select>
+    <optgroup label="Operating Systems">
+      <option>Linux</option>
+      <option>Windows Server</option>
+    </optgroup>
 
-    <label>Issue Subject</label>
-    <input type="text" name="subject" required>
+    <option>Other</option>
+  </select>
 
-    <label>Exact Error Message</label>
-    <textarea name="error" rows="3"></textarea>
+  <label>Issue Subject</label>
+  <input type="text" name="subject" required>
 
-    <label>Description</label>
-    <textarea name="description" rows="4"></textarea>
+  <label>Exact Error Message</label>
+  <textarea name="error" rows="3"></textarea>
 
-    <label>Solution Steps (Step-by-step)</label>
-    <textarea name="solution" rows="6"></textarea>
+  <label>Description</label>
+  <textarea name="description" rows="4"></textarea>
 
-    <button type="submit">Submit Issue</button>
+  <label>Solution Steps (Step-by-step)</label>
+  <textarea name="solution" rows="6"></textarea>
 
-  </form>
+  <button type="submit">Submit Issue</button>
 
-  <div class="back-link">
-    <a href="index.html">← Back to Home</a>
-  </div>
+</form>
+
+<div class="back-link">
+  <a href="index.html">← Back to Home</a>
+</div>
+
+</div>
 </div>
 
 </body>
