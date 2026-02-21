@@ -3,12 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <title>Submit Issue - FixVerse</title>
+  <link rel="stylesheet" href="style.css">
 
   <style>
-    * {
-      box-sizing: border-box;
-    }
-
     body {
       font-family: Arial, sans-serif;
       background-color: #f4f6f9;
@@ -23,67 +20,41 @@
       padding: 30px 20px;
     }
 
-    header h1 {
-      margin: 0;
-      font-size: 32px;
-    }
-
-    header p {
-      margin-top: 10px;
-      font-size: 14px;
-      opacity: 0.9;
-    }
-
     .form-container {
-      max-width: 800px;
-      width: 92%;
+      max-width: 720px;
       margin: 50px auto;
       background: #ffffff;
-      padding: 40px;
+      padding: 35px;
       border-radius: 10px;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+      box-shadow: 0 4px 14px rgba(0,0,0,0.08);
     }
 
     .form-container h2 {
       text-align: center;
-      margin-bottom: 30px;
-    }
-
-    .form-group {
-      margin-bottom: 22px;
+      margin-bottom: 25px;
+      color: #0a1f44;
     }
 
     label {
+      font-weight: bold;
       display: block;
-      font-weight: 600;
-      margin-bottom: 8px;
-      color: #0a1f44;
-      text-align: left;
+      margin-bottom: 6px;
     }
 
     input,
     select,
     textarea {
       width: 100%;
-      padding: 14px;
+      padding: 12px;
+      margin-bottom: 20px;
       border-radius: 6px;
-      border: 1px solid #ccd1d9;
+      border: 1px solid #ccc;
       font-size: 14px;
-      min-height: 48px;
-      font-family: inherit;
+      box-sizing: border-box;
     }
 
     textarea {
-      min-height: 120px;
       resize: vertical;
-    }
-
-    input:focus,
-    select:focus,
-    textarea:focus {
-      outline: none;
-      border-color: #0a1f44;
-      box-shadow: 0 0 0 2px rgba(10,31,68,0.08);
     }
 
     button {
@@ -96,7 +67,6 @@
       cursor: pointer;
       width: 100%;
       font-weight: bold;
-      margin-top: 10px;
     }
 
     button:hover {
@@ -105,7 +75,7 @@
 
     .back-link {
       text-align: center;
-      margin-top: 25px;
+      margin-top: 20px;
     }
 
     .back-link a {
@@ -126,101 +96,63 @@
 <div class="form-container">
   <h2>Submit a Real-World Issue</h2>
 
+  <!-- ✅ IMPORTANT: FORM START -->
   <form action="https://formspree.io/f/xeelkpag" method="POST">
 
-  <!-- Redirect after submit -->
-  <input type="hidden" name="_next" value="https://jenarahulashok-cmyk.github.io/FixVers/thankyou.html">
+    <!-- ✅ Redirect after success -->
+    <input type="hidden" name="_next"
+      value="https://jenarahulashok-cmyk.github.io/FixVers/thankyou.html">
 
-  <!-- Disable captcha (optional but cleaner) -->
-  <input type="hidden" name="_captcha" value="false">
+    <!-- optional -->
+    <input type="hidden" name="_captcha" value="false">
 
-    <div class="form-group">
-      <label>Your Name</label>
-      <input type="text" name="name" required>
-    </div>
+    <label>Your Name</label>
+    <input type="text" name="name" required>
 
-    <div class="form-group">
-      <label>Your Email (Optional)</label>
-      <input type="email" name="email">
-    </div>
+    <label>Your Email (optional)</label>
+    <input type="email" name="email">
 
-    <div class="form-group">
-      <label>Technology / Product</label>
-      <select name="technology" required>
-        <option value="">-- Select Technology --</option>
+    <label>Technology / Product</label>
+    <select name="product" required>
+      <option value="">-- Select Technology --</option>
+      <option>VMware</option>
+      <option>Veeam</option>
+      <option>AWS</option>
+      <option>Azure</option>
+      <option>Linux</option>
+      <option>Windows</option>
+      <option>Terraform</option>
+      <option>Ansible</option>
+      <option>Kubernetes</option>
+      <option>Docker</option>
+      <option>vSAN</option>
+      <option>ESXi</option>
+      <option>Commvault</option>
+      <option>Rubrik</option>
+      <option>Cohesity</option>
+      <option>Other</option>
+    </select>
 
-        <optgroup label="Virtualization">
-          <option>VMware ESXi</option>
-          <option>VMware vCenter</option>
-          <option>VMware vSAN</option>
-          <option>Hyper-V</option>
-        </optgroup>
+    <label>Issue Subject</label>
+    <input type="text" name="subject" required>
 
-        <optgroup label="Backup Solutions">
-          <option>Veeam Backup</option>
-          <option>Commvault</option>
-          <option>Rubrik</option>
-          <option>Cohesity</option>
-          <option>Veritas NetBackup</option>
-        </optgroup>
+    <label>Exact Error Message</label>
+    <textarea name="error" rows="3"></textarea>
 
-        <optgroup label="Cloud">
-          <option>AWS</option>
-          <option>Azure</option>
-          <option>Google Cloud</option>
-        </optgroup>
+    <label>Description</label>
+    <textarea name="description" rows="4"></textarea>
 
-        <optgroup label="Infrastructure & OS">
-          <option>Linux</option>
-          <option>Windows Server</option>
-          <option>Active Directory</option>
-        </optgroup>
-
-        <optgroup label="Automation & DevOps">
-          <option>Terraform</option>
-          <option>Ansible</option>
-          <option>Docker</option>
-          <option>Kubernetes</option>
-        </optgroup>
-
-        <optgroup label="Storage & Networking">
-          <option>NetApp</option>
-          <option>EMC Storage</option>
-          <option>Cisco</option>
-          <option>Firewall</option>
-        </optgroup>
-
-      </select>
-    </div>
-
-    <div class="form-group">
-      <label>Issue Subject</label>
-      <input type="text" name="subject" required>
-    </div>
-
-    <div class="form-group">
-      <label>Exact Error Message</label>
-      <textarea name="error"></textarea>
-    </div>
-
-    <div class="form-group">
-      <label>Description</label>
-      <textarea name="description"></textarea>
-    </div>
-
-    <div class="form-group">
-      <label>Solution Steps (Step-by-step)</label>
-      <textarea name="solution" required></textarea>
-    </div>
+    <label>Solution Steps (Step-by-step)</label>
+    <textarea name="solution" rows="6"></textarea>
 
     <button type="submit">Submit Issue</button>
 
   </form>
+  <!-- ✅ FORM END -->
 
   <div class="back-link">
     <a href="index.html">← Back to Home</a>
   </div>
-
 </div>
 
 </body>
