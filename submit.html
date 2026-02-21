@@ -6,8 +6,22 @@
   <link rel="stylesheet" href="style.css">
 
   <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f6f9;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #0a1f44;
+      color: white;
+      text-align: center;
+      padding: 30px 20px;
+    }
+
     .form-container {
-      max-width: 700px;
+      max-width: 750px;
       margin: 40px auto;
       background: #ffffff;
       padding: 30px;
@@ -64,48 +78,94 @@
 
 <body>
 
-  <header>
-    <h1>FixVerse</h1>
-    <p>Built by Engineers, for Engineers</p>
-  </header>
+<header>
+  <h1>FixVerse</h1>
+  <p>Real-World Solutions for Engineers</p>
+</header>
 
-  <div class="form-container">
-    <h2>Submit a Real-World Issue</h2>
+<div class="form-container">
+  <h2>Submit a Real-World Issue</h2>
 
-    <form action="https://formspree.io/f/xeelkpag" method="POST">
+  <form action="https://formspree.io/f/xeelkpag" method="POST">
 
-      <label>Your Name</label>
-      <input type="text" name="name" required>
+    <!-- NAME -->
+    <label>Your Name</label>
+    <input type="text" name="name" required>
 
-      <label>Your Email</label>
-      <input type="email" name="email" required>
+    <!-- EMAIL (OPTIONAL) -->
+    <label>Your Email (optional)</label>
+    <input type="email" name="email">
 
-      <label>Product</label>
-      <select name="product">
-        <option value="VMware">VMware</option>
-        <option value="Veeam">Veeam</option>
-      </select>
+    <!-- TECHNOLOGY -->
+    <label>Technology / Product</label>
+    <select name="product" required>
+      <option value="">-- Select Technology --</option>
 
-      <label>Issue Subject</label>
-      <input type="text" name="subject" required>
+      <!-- Virtualization -->
+      <option>VMware ESXi</option>
+      <option>VMware vCenter</option>
+      <option>VMware vSAN</option>
+      <option>Hyper-V</option>
 
-      <label>Exact Error Message</label>
-      <textarea name="error" rows="3"></textarea>
+      <!-- Backup -->
+      <option>Veeam Backup</option>
+      <option>Commvault</option>
+      <option>Rubrik</option>
+      <option>Cohesity</option>
+      <option>NetBackup</option>
 
-      <label>Description</label>
-      <textarea name="description" rows="4"></textarea>
+      <!-- Cloud -->
+      <option>AWS</option>
+      <option>Microsoft Azure</option>
+      <option>Google Cloud</option>
 
-      <label>Solution Steps (Step-by-step)</label>
-      <textarea name="solution" rows="6"></textarea>
+      <!-- DevOps / Automation -->
+      <option>Terraform</option>
+      <option>Ansible</option>
+      <option>Docker</option>
+      <option>Kubernetes</option>
 
-      <button type="submit">Submit Issue</button>
+      <!-- Operating Systems -->
+      <option>Linux</option>
+      <option>Windows Server</option>
 
-    </form>
+      <!-- Storage -->
+      <option>NetApp</option>
+      <option>Dell EMC</option>
+      <option>Pure Storage</option>
 
-    <div class="back-link">
-      <a href="index.html">← Back to Home</a>
-    </div>
+      <!-- Networking -->
+      <option>NSX</option>
+      <option>Cisco</option>
+
+      <!-- Other -->
+      <option>Other</option>
+    </select>
+
+    <!-- SUBJECT -->
+    <label>Issue Subject</label>
+    <input type="text" name="subject" required>
+
+    <!-- ERROR -->
+    <label>Exact Error Message</label>
+    <textarea name="error" rows="3"></textarea>
+
+    <!-- DESCRIPTION -->
+    <label>Description</label>
+    <textarea name="description" rows="4"></textarea>
+
+    <!-- SOLUTION -->
+    <label>Solution Steps (Step-by-step)</label>
+    <textarea name="solution" rows="6"></textarea>
+
+    <button type="submit">Submit Issue</button>
+
+  </form>
+
+  <div class="back-link">
+    <a href="index.html">← Back to Home</a>
   </div>
+</div>
 
 </body>
 </html>
